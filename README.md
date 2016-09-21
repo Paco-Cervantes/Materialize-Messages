@@ -1,2 +1,2 @@
 # Materialize-Messages
-Agregado de Mensajes para el Framework Css Materializecss
+Snnipet para Mensajes modales con acción en el framework Materializecss

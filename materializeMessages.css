@@ -1,0 +1,23 @@
+/*
+Estilos solo para este index,
+no los necesitas en tu proyecto
+ */
+body, html{
+	/*background-color: #f5f2f0;*/
+}
+code { 
+    /*background: hsl(220, 80%, 90%); */
+
+}
+
+pre {
+    white-space: pre-wrap;
+    background-color: #fafafa;
+    text-align: left !important;
+    padding: 5px;
+    line-height: 15pt;
+}
+/* solo debes incluir este estilo en tu proyecto, todo lo demas esta en materialize.css*/
+.msg-modal{
+	max-width: 450px !important;
+}
