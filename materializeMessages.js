@@ -18,7 +18,7 @@
               titleSubColor: 'darken-2',
               message : 'dont forget set the message',
               messageColor : 'grey',
-              messageSubColor : 'lighten-2',
+              messageSubColor : 'darken-3',
               bgMessage: 'white',
               bgMessageSubcolor : '',
               bgButtonsContainer : 'white',
