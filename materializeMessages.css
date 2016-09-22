@@ -16,6 +16,9 @@ pre {
     text-align: left !important;
     padding: 5px;
     line-height: 15pt;
+    max-height: 150px;
+    overflow: auto;
+    color: #333;
 }
 /* solo debes incluir este estilo en tu proyecto, todo lo demas esta en materialize.css*/
 .msg-modal{
