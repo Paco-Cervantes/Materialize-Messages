@@ -14,7 +14,7 @@
 	
 		<div class="row">
 			<div class="col s12 center red lighten-1 white-text">
-				<h4>Snnipet para mensajes con Materializecss</h4>
+				<h4>Función jquery para mensajes con Materializecss</h4>
 			</div>
 			<div class="col s12 center grey lighten-2">
 				<h4>Introducción</h4>
@@ -98,44 +98,156 @@
 				</div><!-- example 2 -->
 				<div class="divider"></div>
 				<div class="row"><!-- example 3 -->
-					<blockquote class="left-align">Usando algunas configuracione de color y asignando el evento a una clase y no a un id, tres botones disparan el mismo mensaje.</blockquote>
+					<blockquote class="left-align">Se utiliza la función con el selector de clase y se agrega un botón para cerrar el mensaje y otro que ejecuta una función, esta función recibe el objeto con todos los atributos del elemento al que hiciste click.</blockquote>
 					<div class="col s12 m4">
 						<div class="card-panel lime darken-2 white-text">
-							<pre><code>&lt;a href=&quot;someFooPage.html&quot; class=&quot;btn orange&quot; id=&quot;example2&quot;&gt;Example 2&lt;/a&gt;</code></pre>
+							<pre><code>&lt;div class=&quot;row&quot;&gt;
+								&lt;div class=&quot;col s12&quot;&gt;
+								&lt;a href=&quot;someFooPage.html&quot; class=&quot;btn orange example3&quot; id=&quot;button1_example3&quot; data-username=&quot;Juan alberto rodriguez&quot; data-idreport=&quot;257&quot; &gt; Button 1 Ex 3&lt;/a&gt;&lt;br&gt;&lt;br&gt;
+								&lt;/div&gt;
+								&lt;div class=&quot;col s12&quot;&gt;
+								&lt;a href=&quot;someFooPage.html&quot; class=&quot;btn orange example3&quot; id=&quot;button2_example3&quot; &gt;Button 2 Ex 3&lt;/a&gt;&lt;br&gt;&lt;br&gt;
+								&lt;/div&gt;
+								&lt;div class=&quot;col s12&quot;&gt;
+								&lt;a href=&quot;someFooPage.html&quot; class=&quot;btn orange example3&quot; id=&quot;button3_example3&quot; &gt;Button 3 Ex 3&lt;/a&gt;&lt;br&gt;&lt;br&gt;
+								&lt;/div&gt;
+								&lt;/div&gt;</code></pre>
 						</div>
 					</div>
 					<div class="col s12 m4">
 						<div class="card-panel lime darken-2 white-text">
-							<pre><code>/* Button example2 */
-									$('#example2').materializeMessages({
-										title : 'Titulo del Mensaje',
-										message : 'Contenido del Mensaje',
-										dismissible : false,
-										button1 : true,
-										button1Content : {
-										text : 'Cerrar',
-										action : 'closeMessage',
-										}
-									});</code></pre>
+							<pre><code>$('.example3').materializeMessages({
+						      title : 'Obteniendo atributos',
+						      message : 'Haz click en el botón "Get Attributes" y en la consola se mostrarán todos los atributos del objeto al que hiciste click. este objeto es devuelto a la función que determinaste del botón.',
+						      dismissible : false,
+						      button1 : true,
+						        button1Content : {
+						          text : 'Cerrar',
+						          action : 'closeMessage',
+						        },
+						      button2 : true,
+						        button2Content : {
+						          text : 'Get Atributes',
+						          action : function(elem){
+						              $.each(elem, function(index, value){
+						                console.log(index+' -> '+value);
+						              });
+						               $('#'+elem['messageId']).closeModal();
+						               $('#'+elem['messageId']).remove();
+						                alert('check your console');
+						          }
+						        }
+						      });</code></pre>
 						</div>
 					</div>
 					<div class="col s12 m4">
 						<div class="card-panel lime darken-2 white-text">
 							<div class="row">
 								<div class="col s12">
-									<a href="someFooPage.html" class="btn orange example3" id="button1_example3" >Example 3</a><br><br>
+									<a href="someFooPage.html" class="btn orange example3" id="button1_example3" data-username="Juan alberto rodriguez" data-idreport="257" > Button 1 Ex 3</a><br><br>
 									</div>
 								<div class="col s12">
-									<a href="someFooPage.html" class="btn orange example3" id="button2_example3" >Example 3</a><br><br>
+									<a href="someFooPage.html" class="btn orange example3" id="button2_example3" >Button 2 Ex 3</a><br><br>
 								</div>
 								<div class="col s12">
-									<a href="someFooPage.html" class="btn orange example3" id="button3_example3" >Example 3</a><br><br>
+									<a href="someFooPage.html" class="btn orange example3" id="button3_example3" >Button 3 Ex 3</a><br><br>
 								</div>
 							</div>
 						</div> 
 					</div>
 				
 				</div><!-- example 3 -->
+				<div class="divider"></div>
+				<div class="row"><!-- example 4 -->
+					<blockquote class="left-align">Utilizando todos los estilos configurables para el mensaje. Las opciones de estilos son las determinadas por Materializecss, para el color primario puedes usar "red, blue, yellow, purple, pink, etc." y el color secundario "darken-2, lighten-3, accent-1, etc." puedes consultar la <a href="http://materializecss.com/color.html" target="_blank">paleta de colores</a> de Materializecss. Para el tipo de icono (iconType) puedes usar los <a href="https://design.google.com/icons/" target="_blank">iconos de google</a>.</blockquote>
+					<div class="col s12 m4">
+						<div class="card-panel brown darken-2 white-text">
+							<pre><code>&lt;a href=&quot;someFooPage.html&quot; class=&quot;btn orange&quot; id=&quot;example4&quot;&gt;example 4&lt;/a&gt;</code></pre>
+						</div>
+					</div>
+					<div class="col s12 m4">
+						<div class="card-panel brown darken-2 white-text">
+							<pre><code>$('#example4').materializeMessages({
+							      dismissible : false,
+							        iconType : 'check_circle',
+							        iconColor : 'yellow',
+							        iconSubcolor : 'darken-2',
+							        title : 'Todos los Estilos',
+							        titleColor : 'blue',
+							        titleSubColor : 'darken-1',
+							        message : 'Se utilizan todos los parametros de estilos permitidos',
+							        messageColor : 'orange',
+							        bgMessage : 'black',
+							        bgButtonsContainer : 'black',
+							        button1 : true,
+							        button1Content : {
+							          text : 'Cerrar',
+							          textColor : 'white',
+							          action: 'closeMessage'
+							        },
+							        button2 : true,
+							        button2Content : {
+							          text : 'Launch function',
+							          textColor : 'red',
+							          action : function(){alert('do what you want')}
+							        }
+							    });</code></pre>
+						</div>
+					</div>
+					<div class="col s12 m4">
+						<div class="card-panel brown darken-2 white-text">
+							<a href="someFooPage.html" class="btn orange" id="example4">example 4</a>
+						</div> 
+					</div>
+				</div><!-- example 4 -->
+				<div class="divider"></div>
+				<div class="row"><!-- example 5 -->
+					<blockquote class="left-align">Pasando variables al mensaje, se pueden pasar variables al titulo y al mensaje, utilizemos un ejemplo practico de borrado de usuario, en el enlace que usarias para eliminar el usuario se deben configurar las variables que quieres enviar al mensaje. En este caso en el botón configuraremos lo siguiente: data-id="24", data-firstname="Jhon", data-lastname="Smith". Estás variables deben ser configuradas en la llamada a la función en javascript con los párametros titleVariables y messageVariables.</blockquote>
+					<div class="col s12 m4">
+						<div class="card-panel brown darken-2 white-text">
+							<pre><code>&lt;a href=&quot;someFooPage.html&quot; class=&quot;btn orange&quot; id=&quot;example5&quot; data-id=&quot;24&quot; data-firstname=&quot;Jhon&quot; data-lastname='Smith'&gt;example 5&lt;/a&gt;</code></pre>
+						</div>
+					</div>
+					<div class="col s12 m4">
+						<div class="card-panel brown darken-2 white-text">
+							<pre><code>    /* Button example5 */
+						    $('#example5').materializeMessages({
+						        dismissible : false,
+						        iconType : 'warning',
+						        iconColor : 'red',
+						        iconSubcolor : 'darken-2',
+						        titleVariables : {
+						          firstname : 'data-firstname'
+						        },
+						        title : 'Está seguro de borrar a "{{firstname}}"',
+						        titleColor : 'red',
+						        titleSubColor : 'darken-2',
+						        messageVariables : {
+						          firstname : 'data-firstname',
+						          lastname : 'data-lastname'
+						        },
+						        message : 'El usuario {{firstname}} {{lastname}} será borrado permanentemente',
+						        messageColor : 'red',
+						        messageSubColor : 'darken-4',
+						        button1 : true,
+						        button1Content : {
+						          text : 'Cancelar',
+						          action : 'closeMessage'
+						        },
+						        button2 : true,
+						        button2Content : {
+						          text : 'Borrar',
+						          action : function(elem){ alert ('se borrá al usuario '+elem['data-firstname']+' '+elem['data-lastname'] +' con el id: '+elem['data-id'])}
+						        }
+						    });</code></pre>
+						</div>
+					</div>
+					<div class="col s12 m4">
+						<div class="card-panel brown darken-2 white-text">
+							<a href="someFooPage.html" class="btn orange" id="example5" data-id="24" data-firstname="Jhon" data-lastname='Smith'>example 5</a>
+						</div> 
+					</div>
+				</div><!-- example 5 -->
 
 			</div><!-- termina ejemplos -->
 
@@ -145,7 +257,14 @@
 		</div><!-- termina row --><br><br><br><br><br>
 
 
+<footer class="page-footer">
 
+          <div class="footer-copyright">
+            <div class="container">
+            © 2016 Copyright Francisco Cervantes
+            </div>
+          </div>
+        </footer>
 
 
 

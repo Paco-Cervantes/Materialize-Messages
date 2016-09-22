@@ -2,9 +2,7 @@
 Estilos solo para este index,
 no los necesitas en tu proyecto
  */
-body, html{
-	/*background-color: #f5f2f0;*/
-}
+
 code { 
     /*background: hsl(220, 80%, 90%); */
 
@@ -23,4 +21,8 @@ pre {
 /* solo debes incluir este estilo en tu proyecto, todo lo demas esta en materialize.css*/
 .msg-modal{
 	max-width: 450px !important;
+    overflow: hidden;
 }
+
+/* puedes eliminar este estilo si quieres, solo lo puse por que los botones nunca se pudieron centrar en su propio col*/
+#buttonsMessage { display: flex; justify-content: center; }

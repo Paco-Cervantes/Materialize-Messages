@@ -1,2 +1,5 @@
-# Materialize-Messages
-Snnipet para Mensajes modales con acción en el framework Materializecss
+# materialize-Messages
+
+*Función para Mensajes modales con en el framework Materializecss*
+
+**See examples.html**
