@@ -4,4 +4,3 @@
 
 **See examples.html**
 
-** Docs in progress **
