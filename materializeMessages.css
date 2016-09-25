@@ -1,5 +1,5 @@
 /*
-Estilos solo para este index,
+Estilos solo para este ejemplo,
 no los necesitas en tu proyecto
  */
 
@@ -18,11 +18,29 @@ pre {
     overflow: auto;
     color: #333;
 }
+.copy-left {
+
+display: inline-block;
+
+text-align: right;
+
+margin: 0px;
+
+-moz-transform: scaleX(-1);
+
+-o-transform: scaleX(-1);
+
+-webkit-transform: scaleX(-1);
+
+transform: scaleX(-1);
+
+filter: FlipH;
+
+-ms-filter: "FlipH";
+
+}
 /* solo debes incluir este estilo en tu proyecto, todo lo demas esta en materialize.css*/
 .msg-modal{
 	max-width: 450px !important;
     overflow: hidden;
 }
-
-/* puedes eliminar este estilo si quieres, solo lo puse por que los botones nunca se pudieron centrar en su propio col*/
-#buttonsMessage { display: flex; justify-content: center; }

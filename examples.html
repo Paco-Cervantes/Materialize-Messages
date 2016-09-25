@@ -19,7 +19,7 @@
 			<div class="col s12 center grey lighten-2">
 				<h4>Introducción</h4>
 				<blockquote class="left-align">
-				<p>materializeMessages es solo un snippet para la creación de mensajes modales, utilizando el framework Materializecss.</p>
+				<p>materializeMessages es solo una función para la creación de mensajes modales, utilizando el framework Materializecss.</p>
 				<p>Los <a href="http://materializecss.com/modals.html" target="_blank">mensajes modales</a> ya están diseñados por el framework, y están pensados para mostrar el html de un div oculto, y solo aceptan utilizar una función en el parametro "ready" (Callback for modal open) y en el parametro "complete" (callback for modal close).</p>
 				<p>Para los dialogos el framework utiliza los <a href="http://materializecss.com/dialogs.html" target="_blank">Toast.</a> Todo muy apegado a los <a href="https://design.google.com/" target="_blank">conceptos de diseño de google</a> y con el estandar <a href="http://www.timov.la/article/mobile-first-ya-no-es-una-tendencia-es-un-estandar" target="_blank">mobile first</a>, y si bien esto es fantástico, se echa de menos poder enviar un mensaje al usuario y tener un par de botones para ejecutar alguna acción. sin tener esos divs escondidos para cada mensaje que quieras enviar.</p>
 				</blockquote>
@@ -202,7 +202,18 @@
 				</div><!-- example 4 -->
 				<div class="divider"></div>
 				<div class="row"><!-- example 5 -->
-					<blockquote class="left-align">Pasando variables al mensaje, se pueden pasar variables al titulo y al mensaje, utilizemos un ejemplo practico de borrado de usuario, en el enlace que usarias para eliminar el usuario se deben configurar las variables que quieres enviar al mensaje. En este caso en el botón configuraremos lo siguiente: data-id="24", data-firstname="Jhon", data-lastname="Smith". Estás variables deben ser configuradas en la llamada a la función en javascript con los párametros titleVariables y messageVariables.</blockquote>
+					<blockquote class="left-align">
+						<p>Pasando variables al mensaje, se pueden pasar variables al titulo y al mensaje, utilizemos un ejemplo practico de borrado de usuario, en el enlace que usarias para eliminar el usuario se deben configurar las variables que quieres enviar al mensaje. En este caso en el botón configuraremos lo siguiente: data-id="24", data-firstname="Jhon", data-lastname="Smith". Estás variables deben ser configuradas en la llamada a la función en javascript con el párametros "variables".</p>
+						<p>Por ejemplo:<br>
+							<code class="green">
+							html = &lt;a href="" data-username="Dennis">Enlace&lt;/a><br>
+							Javascript = variables : {
+							username : 'data-username'
+							},
+							title : 'aquí se muestra al usuario {{username}}'</code><br>
+							Donde "username" será el nombre de la variable que utilizarás en la definición del título o del mensaje y "data-username" el nombre del atributo del cual será extraido el valor de la variable. Para este ejemplo se mostrará en el título "aquí se muestra al usuario <b>Dennis</b>".
+						</p>
+					</blockquote>
 					<div class="col s12 m4">
 						<div class="card-panel brown darken-2 white-text">
 							<pre><code>&lt;a href=&quot;someFooPage.html&quot; class=&quot;btn orange&quot; id=&quot;example5&quot; data-id=&quot;24&quot; data-firstname=&quot;Jhon&quot; data-lastname='Smith'&gt;example 5&lt;/a&gt;</code></pre>
@@ -210,22 +221,19 @@
 					</div>
 					<div class="col s12 m4">
 						<div class="card-panel brown darken-2 white-text">
-							<pre><code>    /* Button example5 */
-						    $('#example5').materializeMessages({
+							<pre><code>/* Button example5 */
+    						$('#example5').materializeMessages({
 						        dismissible : false,
 						        iconType : 'warning',
 						        iconColor : 'red',
 						        iconSubcolor : 'darken-2',
-						        titleVariables : {
-						          firstname : 'data-firstname'
+						        variables : {
+						          firstname : 'data-firstname',
+						          lastname : 'data-lastname'
 						        },
 						        title : 'Está seguro de borrar a "{{firstname}}"',
 						        titleColor : 'red',
 						        titleSubColor : 'darken-2',
-						        messageVariables : {
-						          firstname : 'data-firstname',
-						          lastname : 'data-lastname'
-						        },
 						        message : 'El usuario {{firstname}} {{lastname}} será borrado permanentemente',
 						        messageColor : 'red',
 						        messageSubColor : 'darken-4',
@@ -237,7 +245,7 @@
 						        button2 : true,
 						        button2Content : {
 						          text : 'Borrar',
-						          action : function(elem){ alert ('se borrá al usuario '+elem['data-firstname']+' '+elem['data-lastname'] +' con el id: '+elem['data-id'])}
+						          action : function(elem){ alert ('aquí debe ir una llamada ajax para borrar al usuario '+elem['data-firstname']+' '+elem['data-lastname'] +' con el id: '+elem['data-id']);}
 						        }
 						    });</code></pre>
 						</div>
@@ -248,11 +256,208 @@
 						</div> 
 					</div>
 				</div><!-- example 5 -->
+				<div class="row"><!-- example 6 -->
+
+					<div class="col s12">
+						<blockquote class="left-align">Autocierre del mensaje con un tiempo determinado en la configuración de la llamada a la función, Esto solo recomendado para enviar un mensaje demasiado largo donde el <a href="http://materializecss.com/dialogs.html" target="_blank">toast</a> no es funcional. Además se utiliza "modalType : bottom" para escoger el tipo de modal.</blockquote>
+					</div>
+					<div class="col s12 m4">
+						<div class="card-panel deep-orange accent-1 white-text">
+							<pre><code>&lt;a href=&quot;someFooPage.html&quot; class=&quot;btn orange&quot; id=&quot;example6&quot;&gt;Example 6&lt;/a&gt;</code></pre>
+						</div>
+					</div>
+					<div class="col s12 m4">
+						<div class="card-panel deep-orange accent-1 white-text">
+						<pre><code>/* Button example6 */
+					    $('#example6').materializeMessages({
+					      dismissible : false,
+					      iconType : 'cloud_done',
+					      iconColor : 'blue',
+					      iconSubcolor : 'darken-4',
+					      title : 'Proceso terminado ! ! !',
+					      titleColor : 'blue',
+					      titleSubColor : 'darken-4',
+					      message : 'El archivo ha sido envíado exitosamente, por favor revise su correo electrónico para más detalles.&lt;br>&lt;b class="grey-text text-lighten-1">Puede ser necesario que busque en su bandeja de spam.&lt;/b>',
+					      messageColor : 'blue',
+					      messageSubColor : 'darken-3',
+					      autoclose : true,
+					      secondsToClose : 5,
+					      modalType : 'bottom',
+					    });</code></pre>
+						</div>
+					</div>
+					<div class="col s12 m4">
+						<div class="card-panel deep-orange accent-1 white-text">
+							<a href="someFooPage.html" class="btn orange" id="example6">Example 6</a>
+							</div> 
+					</div>
+				
+				</div><!-- example 6 -->
 
 			</div><!-- termina ejemplos -->
+			<div class="col s12 center lighten-2">
+				<h4>Configuraciones</h4>
+				<blockquote class="left-align">
+				<p>Todas las opciones de configuración recibidas por la función.</p>
+				</blockquote>
+				<div class="container">
+					<table class="bordered striped responsive-table">
+	        			<thead>
+	          				<tr>
+				            	<th data-field="id">Parámetro</th>
+				            	<th data-field="id">Descripción</th>
+				              	<th data-field="name">Tipo</th>
+				              	<th data-field="price">Default</th>
+				              	<th data-field="price">Ejemplo</th>
+				        	</tr>
+				        </thead>
+	        			<tbody>
+	          				<tr>
+				        		<td>iconType</td>
+				        		<td>Define el tipo de ícono a presentar antes del título. Solo se aceptan referencia a los <a href="https://design.google.com/icons/" target="_blank">iconos de google</a>.</td>
+				            	<td>string</td>
+				            	<td>info</td>
+				            	<td>error, account_box, get_app, home, etc.</td>
+				          	</tr>
+				          	<tr>
+				        		<td>iconColor</td>
+				        		<td>Define el color del ícono del título, solo acepta colores definidos en la <a href="http://materializecss.com/color.html" target="_blank">paleta de colores</a> de Materializecss.</td>
+				            	<td>string</td>
+				            	<td>grey</td>
+				            	<td>purple, yellow, deep-orange, blue, etc.</td>
+				          	</tr>
+				          	<tr>
+				        		<td>iconSubColor</td>
+				        		<td>Define la clase de color opcional del ícono del título, solo acepta las clases opcionales definidos en la <a href="http://materializecss.com/color.html" target="_blank">paleta de colores</a> de Materializecss.</td>
+				            	<td>string</td>
+				            	<td>darken-2</td>
+				            	<td>accent-4, lighten-2, darken-3, etc.</td>
+				          	</tr>
+				          	<tr>
+				        		<td>title</td>
+				        		<td>Texto a mostrar como título del mensaje.</td>
+				            	<td>string | html</td>
+				            	<td>dont forget set the title</td>
+				            	<td>&lt;span>Cualquier Texto de título&lt;/span></td>
+				          	</tr>
+				          	<tr>
+				        		<td>titleColor</td>
+				        		<td>Color del texto a mostrar como título del mensaje.</td>
+				            	<td>string</td>
+				            	<td>grey</td>
+				            	<td>purple, yellow, deep-orange, blue, etc.</td>
+				          	</tr>
+				          	<tr>
+				        		<td>titleSubColor</td>
+				        		<td>Color opcional del texto a mostrar como título del mensaje.</td>
+				            	<td>string</td>
+				            	<td>darken-2</td>
+				            	<td>accent-4, lighten-2, darken-3, etc.</td>
+				          	</tr>
+				          	<tr>
+				        		<td>message</td>
+				        		<td>Texto del mensaje a mostrar.</td>
+				            	<td>string | html</td>
+				            	<td>dont forget set the message</td>
+				            	<td>&lt;span>Cualquier texto para el mensaje.&lt;/span></td>
+				          	</tr>
+				          	<tr>
+				        		<td>messageColor</td>
+				        		<td>Color del texto del mensaje a mostrar.</td>
+				            	<td>string</td>
+				            	<td>grey</td>
+				            	<td>purple, yellow, deep-orange, blue, etc.</td>
+				          	</tr>
+				          	<tr>
+				        		<td>messageSubColor</td>
+				        		<td>Color opcional del texto del mensaje a mostrar.</td>
+				            	<td>string</td>
+				            	<td>darken-3</td>
+				            	<td>accent-4, lighten-2, darken-3, etc.</td>
+				          	</tr>
+				          	<tr>
+				        		<td>bgMessage</td>
+				        		<td>Color de fondo del contenedor del título y el mensaje.</td>
+				            	<td>string</td>
+				            	<td>white</td>
+				            	<td>purple, yellow, deep-orange, blue, etc.</td>
+				          	</tr>
+				          	<tr>
+				        		<td>bgMessageSubcolor</td>
+				        		<td>Color opcional de fondo del contenedor del título y el mensaje.</td>
+				            	<td>string</td>
+				            	<td>' '</td>
+				            	<td>accent-4, lighten-2, darken-3, etc.</td>
+				          	</tr>
+				          	<tr>
+				        		<td>bgButtonsContainer</td>
+				        		<td>Color de fondo del contenedor de los botonos del mensaje.</td>
+				            	<td>string</td>
+				            	<td>white</td>
+				            	<td>purple, yellow, deep-orange, blue, etc.</td>
+				          	</tr>
+				          	<tr>
+				        		<td>bgButtonsContainerSubcolor</td>
+				        		<td>Color opcional de fondo del contenedor de los botonos del mensaje.</td>
+				            	<td>string</td>
+				            	<td>' '</td>
+				            	<td>accent-4, lighten-2, darken-3, etc.</td>
+				          	</tr>
+				          	<tr>
+				        		<td>button1</td>
+				        		<td>Indica si el botón 1 será utilizado en el mensaje.</td>
+				            	<td>boolean</td>
+				            	<td>false</td>
+				            	<td>true | false</td>
+				          	</tr>
+				          	<tr>
+				        		<td>button2</td>
+				        		<td>Indica si el botón 2 será utilizado en el mensaje.</td>
+				            	<td>boolean</td>
+				            	<td>false</td>
+				            	<td>true | false</td>
+				          	</tr>
+				          	<tr>
+				        		<td>dismissible</td>
+				        		<td>Indica si el mensaje podrá ser cerrado al hacer click fuera del mismo.</td>
+				            	<td>boolean</td>
+				            	<td>true</td>
+				            	<td>true | false</td>
+				          	</tr>
+				          	<tr>
+				        		<td>variables</td>
+				        		<td>Recibe las variables que serán buscadas y reemplazadas en el título o contenido del mensaje.</td>
+				            	<td>object</td>
+				            	<td>empty object</td>
+				            	<td>firstname : 'data-firstname'</td>
+				          	</tr>
+				          	<tr>
+				        		<td>autoclose</td>
+				        		<td>Indica si el mensaje deberá cerrarse automáticamente.</td>
+				            	<td>boolean</td>
+				            	<td>false</td>
+				            	<td>true | false</td>
+				          	</tr>
+				          	<tr>
+				        		<td>secondsToClose</td>
+				        		<td>Número de segundos en que se cerrará automáticamente el mensaje.</td>
+				            	<td>number</td>
+				            	<td>3</td>
+				            	<td>5</td>
+				          	</tr>
+				          	<tr>
+				        		<td>modalType</td>
+				        		<td>Indica el tipo de modal en el que se mostrará el mensaje.</td>
+				            	<td>string</td>
+				            	<td>message</td>
+				            	<td>message | bottom</td>
+				          	</tr>
 
 
-
+	        			</tbody>
+	      			</table>
+				</div>
+			</div>
 
 		</div><!-- termina row --><br><br><br><br><br>
 
@@ -261,7 +466,8 @@
 
           <div class="footer-copyright">
             <div class="container">
-            © 2016 Copyright Francisco Cervantes
+            <span class="copy-left">©</span> 2016 Copyleft Francisco Cervantes |
+            Dudas, Comentarios o sugerencias paco_cervantes_peralta@outlook.com
             </div>
           </div>
         </footer>

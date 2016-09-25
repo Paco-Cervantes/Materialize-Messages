@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-
   /* Button example1*/
 	$('#example1').materializeMessages();
 
@@ -72,16 +71,13 @@ $( document ).ready(function() {
         iconType : 'warning',
         iconColor : 'red',
         iconSubcolor : 'darken-2',
-        titleVariables : {
-          firstname : 'data-firstname'
+        variables : {
+          firstname : 'data-firstname',
+          lastname : 'data-lastname'
         },
         title : 'Está seguro de borrar a "{{firstname}}"',
         titleColor : 'red',
         titleSubColor : 'darken-2',
-        messageVariables : {
-          firstname : 'data-firstname',
-          lastname : 'data-lastname'
-        },
         message : 'El usuario {{firstname}} {{lastname}} será borrado permanentemente',
         messageColor : 'red',
         messageSubColor : 'darken-4',
@@ -93,8 +89,23 @@ $( document ).ready(function() {
         button2 : true,
         button2Content : {
           text : 'Borrar',
-          action : function(elem){ alert ('aquí debe ir una llamada ajax para borrar al usuario '+elem['data-firstname']+' '+elem['data-lastname'] +' con el id: '+elem['data-id'])}
+          action : function(elem){ alert ('aquí debe ir una llamada ajax para borrar al usuario '+elem['data-firstname']+' '+elem['data-lastname'] +' con el id: '+elem['data-id']);}
         }
     });
-
+    /* Button example6 */
+    $('#example6').materializeMessages({
+      dismissible : false,
+      iconType : 'cloud_done',
+      iconColor : 'blue',
+      iconSubcolor : 'darken-4',
+      title : 'Proceso terminado ! ! !',
+      titleColor : 'blue',
+      titleSubColor : 'darken-4',
+      message : 'El archivo ha sido envíado exitosamente, por favor revise su correo electrónico para más detalles.<br><b class="grey-text text-lighten-1">Puede ser necesario que busque en su bandeja de spam.</b>',
+      messageColor : 'blue',
+      messageSubColor : 'darken-3',
+      autoclose : true,
+      secondsToClose : 5,
+      modalType : 'bottom',
+    });
 }); /*jquery ready*/
