@@ -7,7 +7,7 @@ $(function() {
     $('#example2').materializeMessages({
       title : 'Título del Mensaje',
       message : 'Contenido del Mensaje',
-	    msgMaxWidth: 650,
+	    msgMaxWidth: '650px',
       dismissible : false,
       button1 : true,
       button1Content : {
@@ -119,7 +119,7 @@ $('#example7').materializeMessages({
   useScrollbar: true,
   scrollBarType: 'scrollbar-dynamic',
   fullHeight : true,
-  msgMaxWidth: 800,
+  msgMaxWidth: '800px',
   dismissible : false,
   iconType : 'warning',
   iconColor : 'white',
