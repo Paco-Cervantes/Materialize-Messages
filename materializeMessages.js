@@ -93,7 +93,7 @@
 		if(settings.withTitle)
 			wraperMessage += '<div class="msg-header '+settings.bgTitleColor+' '+settings.bgTitleSubColor+'" style="padding: 10px 0 10px 24px;"><h5 class="'+settings.titleColor+'-text text-'+settings.titleSubColor+'" style="margin: 0 !important;"><li class=" medium material-icons '+settings.iconColor+'-text text-'+settings.iconSubcolor+'">'+settings.iconType+'</li> '+settings.title+'</h5></div>';
 		wraperMessage += '<div class="modal-content '+ settings.scrollBarType+ ' ' +settings.bgMessage+' '+settings.bgMessageSubcolor+'"><p class="'+settings.messageColor+'-text text-'+settings.messageSubColor+'" id="messageContent">'+settings.message+'</p></div>';
-		var buttonsContainer = '<div class="modal-footer '+settings.bgButtonsContainer+' '+settings.bgButtonsContainerSubcolor+'" id="buttonsMessage"></div>';
+		var buttonsContainer = '<div class="modal-footer '+modalStyleBorderTopFooter+' '+settings.bgButtonsContainer+' '+settings.bgButtonsContainerSubcolor+'" id="buttonsMessage"></div>';
 		if(settings.button1 === true || settings.button2 === true){
 		  wraperMessage += buttonsContainer;
 		}
