@@ -5,8 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Mensajes Modales con Materializecss</title>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="materializeMessages.css">
+	<link rel="stylesheet" type="text/css" href="optionals/jquery.scrollbar.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
@@ -14,6 +15,7 @@
 	
 		<div class="row">
 			<div class="col s12 center red lighten-1 white-text">
+			<span class="new badge blue" data-badge-caption="Versión 1.0.0 de Materialize y 3.3.1 de Jquery"></span>
 				<h4>Función jquery para mensajes con Materializecss</h4>
 			</div>
 			<div class="col s12 center grey lighten-2">
@@ -26,18 +28,48 @@
 			</div>
 			<div class="col s12 center green lighten-2">
 				<h4>Requerimientos</h4>
-				<div class="col s12 m4">
-					<p>Jquery</p>
-					<pre><code>&lt;script src=&quot;https://code.jquery.com/jquery-2.2.4.min.js&quot; integrity=&quot;sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;</code></pre>
+				<div class="col s12 m6">
+					<h5>Javascript</h5>
+					<div class="card panel blue lighten-3 left-align grey-text text-darken-2">
+						<p>/* Jquery */</p>
+						<pre>&lt;script src=&quot;https://code.jquery.com/jquery-3.3.1.min.js&quot; integrity=&quot;sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+						</pre>
+					</div>
+					<div class="card blue lighten-3 left-align grey-text text-darken-2">
+						<p>/* Materializecss */</p>
+						<pre>&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js&quot;&gt;&lt;/script&gt;
+						</pre>
+					</div>
+					<div class="card blue lighten-3 left-align grey-text text-darken-2">
+						<p>/* Materialize-Messages */</p>
+						<pre>&lt;script src=&quot;materializeMessages.js&quot;&gt;&lt;/script&gt;
+						</pre>
+					</div>
+					<div class="card red lighten-4 left-align grey-text text-darken-2">
+						<p>/* JqueryScrollbar (Solo si activas la opción para utilizar esta librería) */</p>
+						<pre>&lt;script src=&quot;optionals/jquery.scrollbar.min.js&quot;&gt;&lt;/script&gt;
+						</pre>
+					</div>
+					
 				</div>
-				<div class="col s12 m4">
-					<p>Materializecss (Javascript)</p>
-					<pre><code>&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+
+				<div class="col s12 m6">
+					<h5>Css</h5>
+					<div class="card blue lighten-3 left-align grey-text text-darken-2">
+						<p>/* Materializecss */</p>
+						<pre>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css&quot;&gt;</pre>
+					</div>
+					<div class="card blue lighten-3 left-align grey-text text-darken-2">
+						<p>/* Materialize-Messages */</p>
+						<pre>&lt;link rel=&quot;stylesheet&quot; href=&quot;materializeMessages.css&quot;&gt;</pre>
+					</div>
+					<div class="card red lighten-4 left-align grey-text text-darken-2">
+						<p>/* Opcional si activas el scrollbar */</p>
+						<pre>&lt;link rel=&quot;stylesheet&quot; href=&quot;optionals/jquery.scrollbar.css&quot;&gt;</pre>
+					</div>
+					
 				</div>
-				<div class="col s12 m4">
-					<p>Materializecss (Css)</p>
-					<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css&quot;&gt;</code></pre>
-				</div>
+
 			</div>
 			<div class="col s12 center ">
 				<h4>Ejemplos</h4>
@@ -68,7 +100,7 @@
 				</div><!-- example 1 -->
 				<div class="divider"></div>
 				<div class="row"><!-- example2 -->
-					<blockquote class="left-align">Configuración básica de texto en título y mensaje, y además se agrega un botón con la función por default para cerrar el mensaje, este solo se cierra con el botón.</blockquote>
+					<blockquote class="left-align">Configuración básica de texto en título, mensaje y ancho máximo del modal, además se agrega un botón con la función por default para cerrar el mensaje, este solo se cierra con el botón.</blockquote>
 					<div class="col s12 m4">
 						<div class="card-panel teal accent-4 white-text">
 							<pre><code>&lt;a href=&quot;someFooPage.html&quot; class=&quot;btn orange&quot; id=&quot;example2&quot;&gt;Example 2&lt;/a&gt;</code></pre>
@@ -80,6 +112,7 @@
 									$('#example2').materializeMessages({
 										title : 'Titulo del Mensaje',
 										message : 'Contenido del Mensaje',
+										msgMaxWidth: 650,
 										dismissible : false,
 										button1 : true,
 										button1Content : {
@@ -223,7 +256,9 @@
 						<div class="card-panel brown darken-2 white-text">
 							<pre><code>/* Button example5 */
     						$('#example5').materializeMessages({
-						        dismissible : false,
+    						    dismissible : false,
+						        bgTitleColor : 'red',
+		  						bgTitleSubColor: 'lighten-3',
 						        iconType : 'warning',
 						        iconColor : 'red',
 						        iconSubcolor : 'darken-2',
@@ -232,8 +267,6 @@
 						          lastname : 'data-lastname'
 						        },
 						        title : 'Está seguro de borrar a "{{firstname}}"',
-						        titleColor : 'red',
-						        titleSubColor : 'darken-2',
 						        message : 'El usuario {{firstname}} {{lastname}} será borrado permanentemente',
 						        messageColor : 'red',
 						        messageSubColor : 'darken-4',
@@ -272,11 +305,8 @@
 					    $('#example6').materializeMessages({
 					      dismissible : false,
 					      iconType : 'cloud_done',
-					      iconColor : 'blue',
-					      iconSubcolor : 'darken-4',
+					      iconColor : 'white',
 					      title : 'Proceso terminado ! ! !',
-					      titleColor : 'blue',
-					      titleSubColor : 'darken-4',
 					      message : 'El archivo ha sido envíado exitosamente, por favor revise su correo electrónico para más detalles.&lt;br>&lt;b class="grey-text text-lighten-1">Puede ser necesario que busque en su bandeja de spam.&lt;/b>',
 					      messageColor : 'blue',
 					      messageSubColor : 'darken-3',
@@ -293,6 +323,118 @@
 					</div>
 				
 				</div><!-- example 6 -->
+				<div class="row"><!-- example 7 -->
+
+					<div class="col s12">
+						<blockquote class="left-align">Mensaje con las opciones "useScrollbar", "fullHeight" y "scrollBarType" para mensajes demasiado largos.
+						<div class="red lighten-4">
+							<p>Para utilizar la opción "useScrollbar" debes agregar la libreria <a href="https://github.com/gromo/jquery.scrollbar" target="_blank">Jquery Scrollbar</a></p>
+							<p>La opción "scrollBarType" acepta solo los tipos de scrollbar utilizados en la librería <a href="http://gromo.github.io/jquery.scrollbar/demo/basic.html" target="_blank">Jquery Scrollbar</a></p>
+						</div>
+						</blockquote>
+					</div>
+					<div class="col s12 m4">
+						<div class="card-panel brown darken-1 white-text">
+							<pre><code>&lt;a href=&quot;someFooPage.html&quot; class=&quot;btn orange&quot; id=&quot;example7&quot;&gt;Example 7&lt;/a&gt;</code></pre>
+						</div>
+					</div>
+					<div class="col s12 m4">
+						<div class="card-panel brown darken-1 white-text">
+						<pre><code>var msg = '<div class="container">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et dignissim quam. Phasellus id elit ipsum. Fusce et sapien eu nibh ultrices sodales. Ut id felis in augue molestie placerat. Donec cursus lectus a rhoncus vestibulum. Maecenas non felis vel diam egestas accumsan eget et lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p><p>Cras non mattis tellus. Praesent tincidunt eleifend nisi vel sollicitudin. Duis porttitor lorem sed sem aliquam, sed euismod ex commodo. Nam blandit nisl enim, eu lobortis nibh bibendum in. Morbi dapibus mattis rutrum. Suspendisse at orci convallis, mattis lacus sit amet, pellentesque ante. Donec non malesuada velit. Nullam molestie ligula ac nisi aliquet sagittis. Pellentesque interdum nisi vel diam iaculis elementum venenatis at felis. Aenean at magna consequat, scelerisque nisi a, condimentum nunc. Donec malesuada nibh magna, euismod consequat orci congue ut.</p><p>Morbi nec orci eget turpis semper blandit eu non velit. Phasellus aliquet egestas dolor nec aliquet. Aenean laoreet nunc in erat ullamcorper pretium. Maecenas fringilla justo sed congue sagittis. Curabitur tincidunt, diam ac placerat maximus, sem ante aliquam enim, vitae tempus leo ligula vitae elit. Nulla fringilla, ante ac dictum laoreet, arcu orci imperdiet enim, eu ullamcorper risus quam ac lacus. Aliquam dapibus dictum ornare.</p><p>Ut nisl mi, venenatis in lorem nec, hendrerit pharetra augue. Sed sed erat eu diam aliquet bibendum at id metus. Donec eu vulputate felis. Vivamus blandit pretium sem, quis sodales sem fermentum non. Praesent a arcu luctus, auctor elit id, suscipit urna. Vestibulum tristique rhoncus ante, sed lobortis quam convallis at. Curabitur scelerisque tempus arcu, a malesuada turpis. Praesent quis fringilla ligula. Quisque tincidunt tempus leo, vel rutrum augue semper in.</p><p>Morbi gravida eget lacus eu finibus. Duis diam nunc, varius sit amet sem imperdiet, fringilla sagittis risus. Aenean convallis quis magna ut tristique. Donec eu ullamcorper urna. Proin euismod enim non velit sagittis, eget tristique ex gravida. Etiam vestibulum sit amet tortor a pretium. Nunc id dui tellus</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et dignissim quam. Phasellus id elit ipsum. Fusce et sapien eu nibh ultrices sodales. Ut id felis in augue molestie placerat. Donec cursus lectus a rhoncus vestibulum. Maecenas non felis vel diam egestas accumsan eget et lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p><p>Cras non mattis tellus. Praesent tincidunt eleifend nisi vel sollicitudin. Duis porttitor lorem sed sem aliquam, sed euismod ex commodo. Nam blandit nisl enim, eu lobortis nibh bibendum in. Morbi dapibus mattis rutrum. Suspendisse at orci convallis, mattis lacus sit amet, pellentesque ante. Donec non malesuada velit. Nullam molestie ligula ac nisi aliquet sagittis. Pellentesque interdum nisi vel diam iaculis elementum venenatis at felis. Aenean at magna consequat, scelerisque nisi a, condimentum nunc. Donec malesuada nibh magna, euismod consequat orci congue ut.</p><p>Morbi nec orci eget turpis semper blandit eu non velit. Phasellus aliquet egestas dolor nec aliquet. Aenean laoreet nunc in erat ullamcorper pretium. Maecenas fringilla justo sed congue sagittis. Curabitur tincidunt, diam ac placerat maximus, sem ante aliquam enim, vitae tempus leo ligula vitae elit. Nulla fringilla, ante ac dictum laoreet, arcu orci imperdiet enim, eu ullamcorper risus quam ac lacus. Aliquam dapibus dictum ornare.</p><p>Ut nisl mi, venenatis in lorem nec, hendrerit pharetra augue. Sed sed erat eu diam aliquet bibendum at id metus. Donec eu vulputate felis. Vivamus blandit pretium sem, quis sodales sem fermentum non. Praesent a arcu luctus, auctor elit id, suscipit urna. Vestibulum tristique rhoncus ante, sed lobortis quam convallis at. Curabitur scelerisque tempus arcu, a malesuada turpis. Praesent quis fringilla ligula. Quisque tincidunt tempus leo, vel rutrum augue semper in.</p><p>Morbi gravida eget lacus eu finibus. Duis diam nunc, varius sit amet sem imperdiet, fringilla sagittis risus. Aenean convallis quis magna ut tristique. Donec eu ullamcorper urna. Proin euismod enim non velit sagittis, eget tristique ex gravida. Etiam vestibulum sit amet tortor a pretium. Nunc id dui tellus</div><br><br>';
+
+$('#example7').materializeMessages({
+  useScrollbar: true,
+  scrollBarType: 'scrollbar-rail',
+  fullHeight : true,
+  msgMaxWidth: 800,
+  dismissible : false,
+  iconType : 'warning',
+  iconColor : 'white',
+  iconSubcolor : '',
+  title : 'Mensaje',
+  titleColor : 'white',
+  titleSubColor : '',
+  message : msg,
+  button2 : true,
+  button2Content : {
+    text : 'Cancelar',
+    action : 'closeMessage'
+  },
+  button1 : true,
+  button1Content : {
+    text : 'Grabar',
+    action : function(elem){
+      var el = document.querySelector('#modalMessage');
+      var instance = M.Modal.getInstance(el);
+      instance.close();
+      $('#modalMessage').remove();
+      instance.destroy();
+    }
+  }
+});</code></pre>
+						</div>
+					</div>
+					<div class="col s12 m4">
+						<div class="card-panel brown darken-1 white-text">
+							<a href="someFooPage.html" class="btn orange" id="example7">Example 7</a>
+							</div> 
+					</div>
+				
+				</div><!-- example 7 -->
+
+				<div class="row"><!-- example 8 -->
+					<blockquote class="left-align">Agregando iconos a los botones.</blockquote>
+					<div class="col s12 m4">
+						<div class="card-panel teal accent-4 white-text">
+							<pre><code>&lt;a href=&quot;someFooPage.html&quot; class=&quot;btn orange&quot; id=&quot;example2&quot;&gt;Example 8&lt;/a&gt;</code></pre>
+						</div>
+					</div>
+					<div class="col s12 m4">
+						<div class="card-panel teal accent-4 white-text">
+							<pre><code>/* Button example8 */
+    $('#example8').materializeMessages({
+      title : 'Botones con icono',
+      message : 'Ejemplo para agregar iconos a los botones',
+      dismissible : false,
+      iconType: 'radio_button_unchecked',
+      button1 : true,
+      button1Content : {
+        text : 'Guardar',
+        textColor: 'green',
+        textSubColor: 'darlken-4',
+        action : function(elem){
+            alert('tus datos han sido guardados.')
+            var el = document.querySelector('#modalMessage');
+            var instance = M.Modal.getInstance(el);
+            instance.close();
+            $('#modalMessage').remove();
+            instance.destroy();
+          }
+      },
+      button1Icon: true,
+      button1IconType: 'done',
+      button1IconSide: 'right',
+      button2: true,
+      button2Content: {
+        text: 'Cancelar',
+        textColor: 'red',
+        textSubcolor: 'darken-3',
+        action: 'closeMessage'
+      },
+      button2Icon: true,
+      button2IconType: 'close',
+      button2IconSide:'left'
+    });</code></pre>
+						</div>
+					</div>
+					<div class="col s12 m4">
+						<div class="card-panel teal accent-4 white-text">
+							<a href="someFooPage.html" class="btn orange" id="example8">Example 8</a>
+						</div> 
+					</div>
+				
+				</div><!-- example 8 -->
+
 
 			</div><!-- termina ejemplos -->
 			<div class="col s12 center lighten-2">
@@ -304,15 +446,58 @@
 					<table class="bordered striped responsive-table">
 	        			<thead>
 	          				<tr>
-				            	<th data-field="id">Parámetro</th>
-				            	<th data-field="id">Descripción</th>
-				              	<th data-field="name">Tipo</th>
-				              	<th data-field="price">Default</th>
-				              	<th data-field="price">Ejemplo</th>
+				            	<th data-field="parametro">Parámetro</th>
+				            	<th data-field="descripcion">Descripción</th>
+				              	<th data-field="tipo">Tipo</th>
+				              	<th data-field="default">Default</th>
+				              	<th data-field="ejemplo">Ejemplo</th>
 				        	</tr>
 				        </thead>
 	        			<tbody>
 	          				<tr>
+				        		<td>useScrollbar <span class="new badge blue" data-badge-caption="Nuevo"></span></td>
+				        		<td>Se utiliza para mejorar el scroll en mensajes muy largos.<br>
+									<div class="red lighten-4">Para utilizar esta opción debes incluir la librería <a href="https://github.com/gromo/jquery.scrollbar" target="_blank">Jquery Scrollbar</a> (ver ejemplo 7).</div>
+				        		</td>
+				            	<td>boolean</td>
+				            	<td>false</td>
+				            	<td>true | false</td>
+				            	
+				          	</tr>
+				          	<tr>
+				        		<td>scrollBarType <span class="new badge blue" data-badge-caption="Nuevo"></span></td>
+				        		<td>Cambia el estilo del scrollbar cuando se utiliza "useScrollbar".<br>
+									<div class="red lighten-4">Para la configuración de esta opción puedes ver los ejemplos de la librería <a href="http://gromo.github.io/jquery.scrollbar/demo/basic.html" target="_blank">Jquery Scrollbar</a>.</div>
+				        		</td>
+				            	<td>string</td>
+				            	<td>scrollbar-macosx</td>
+				            	<td>scrollbar-dynamic, scrollbar-light, etc.</td>
+				            	
+				          	</tr>
+				          	<tr>
+				        		<td>fullHeight <span class="new badge blue" data-badge-caption="Nuevo"></span></td>
+				        		<td>Se ocupa todo el alto de la página para mostrar mensajes largos, se recomienda usar en conjunto con "useScrollbar"</a>.</td>
+				            	<td>boolean</td>
+				            	<td>false</td>
+				            	<td>true | false</td>
+				          	</tr>
+
+				          	<tr>
+				        		<td>msgMaxWidth <span class="new badge blue" data-badge-caption="Nuevo"></span></td>
+				        		<td>Define el ancho máximo del mensaje modal en pixeles.</td>
+				            	<td>number</td>
+				            	<td>450</td>
+				            	<td>650</td>
+				          	</tr>
+				          	
+							<tr>
+				        		<td>withTitle <span class="new badge blue" data-badge-caption="Nuevo"></span></td>
+				        		<td>Muestra el encabezado del mensaje.</td>
+				            	<td>boolean</td>
+				            	<td>true</td>
+				            	<td>true | false</td>
+				          	</tr>
+				          	<tr>
 				        		<td>iconType</td>
 				        		<td>Define el tipo de ícono a presentar antes del título. Solo se aceptan referencia a los <a href="https://design.google.com/icons/" target="_blank">iconos de google</a>.</td>
 				            	<td>string</td>
@@ -323,42 +508,56 @@
 				        		<td>iconColor</td>
 				        		<td>Define el color del ícono del título, solo acepta colores definidos en la <a href="http://materializecss.com/color.html" target="_blank">paleta de colores</a> de Materializecss.</td>
 				            	<td>string</td>
-				            	<td>grey</td>
+				            	<td>white</td>
 				            	<td>purple, yellow, deep-orange, blue, etc.</td>
 				          	</tr>
 				          	<tr>
 				        		<td>iconSubColor</td>
 				        		<td>Define la clase de color opcional del ícono del título, solo acepta las clases opcionales definidos en la <a href="http://materializecss.com/color.html" target="_blank">paleta de colores</a> de Materializecss.</td>
 				            	<td>string</td>
-				            	<td>darken-2</td>
+				            	<td>''</td>
 				            	<td>accent-4, lighten-2, darken-3, etc.</td>
 				          	</tr>
 				          	<tr>
 				        		<td>title</td>
 				        		<td>Texto a mostrar como título del mensaje.</td>
 				            	<td>string | html</td>
-				            	<td>dont forget set the title</td>
+				            	<td>No olvides configurar el título del mensaje</td>
 				            	<td>&lt;span>Cualquier Texto de título&lt;/span></td>
 				          	</tr>
 				          	<tr>
 				        		<td>titleColor</td>
 				        		<td>Color del texto a mostrar como título del mensaje.</td>
 				            	<td>string</td>
-				            	<td>grey</td>
+				            	<td>white</td>
 				            	<td>purple, yellow, deep-orange, blue, etc.</td>
 				          	</tr>
 				          	<tr>
 				        		<td>titleSubColor</td>
 				        		<td>Color opcional del texto a mostrar como título del mensaje.</td>
 				            	<td>string</td>
-				            	<td>darken-2</td>
+				            	<td>''</td>
+				            	<td>accent-4, lighten-2, darken-3, etc.</td>
+				          	</tr>
+				          	<tr>
+				        		<td>bgTitleColor</td>
+				        		<td>Color de fondo en el título del mensaje.</td>
+				            	<td>string</td>
+				            	<td>blue</td>
+				            	<td>purple, yellow, deep-orange, blue, etc.</td>
+				          	</tr>
+				          	<tr>
+				        		<td>bgTitleSubColor</td>
+				        		<td>Color secundario del fondo del título del mensaje.</td>
+				            	<td>string</td>
+				            	<td>darken-3</td>
 				            	<td>accent-4, lighten-2, darken-3, etc.</td>
 				          	</tr>
 				          	<tr>
 				        		<td>message</td>
 				        		<td>Texto del mensaje a mostrar.</td>
 				            	<td>string | html</td>
-				            	<td>dont forget set the message</td>
+				            	<td>No olvides configurar el mensaje</td>
 				            	<td>&lt;span>Cualquier texto para el mensaje.&lt;/span></td>
 				          	</tr>
 				          	<tr>
@@ -410,12 +609,80 @@
 				            	<td>false</td>
 				            	<td>true | false</td>
 				          	</tr>
+			          		<tr>
+				        		<td>button1Content <span class="new badge orange" data-badge-caption="Mejorado"></td>
+				        		<td>Objeto que tiene configuraciones de estilo y la función a ejecutar en el botón 1.</td>
+				            	<td>variables</td>
+				            	<td>text: "button1"<br>
+				        			textColor: "grey"<br>
+				        			textSubColor:"darken-2"<br>
+				        			action:'closeMessage'</td>
+				            	<td>text: "Borrar"<br>
+				        			textColor: "Red"<br>
+				        			textSubColor:"darken-4"<br>
+				        			action:function(){alert('Registro Borrado')}</td>
+				          	</tr>
+				          	<tr>
+				        		<td>button1Icon <span class="new badge blue" data-badge-caption="Nuevo"></td>
+				        		<td>Agrega un icono en el texto del botón 1.</td>
+				            	<td>boolean</td>
+				            	<td>false</td>
+				            	<td>true | false</td>
+				          	</tr>
+				          	<tr>
+				        		<td>button1IconType <span class="new badge blue" data-badge-caption="Nuevo"></td>
+				        		<td>Define el tipo de icono a usar en el botón 1. Solo se aceptan referencias a los <a href="https://design.google.com/icons/" target="_blank">iconos de google</a></td>
+				            	<td>string</td>
+				            	<td>''</td>
+				            	<td>error, account_box, get_app, home, etc.</td>
+				          	</tr>
+				          	<tr>
+				        		<td>button1IconSide <span class="new badge blue" data-badge-caption="Nuevo"></td>
+				        		<td>Define en que lado del texto se colocará el icono a usar en el botón 1.</td>
+				            	<td>string</td>
+				            	<td>left</td>
+				            	<td>left | right</td>
+				          	</tr>
 				          	<tr>
 				        		<td>button2</td>
 				        		<td>Indica si el botón 2 será utilizado en el mensaje.</td>
 				            	<td>boolean</td>
 				            	<td>false</td>
 				            	<td>true | false</td>
+				          	</tr>
+				          	<tr>
+				        		<td>button2Icon <span class="new badge blue" data-badge-caption="Nuevo"></td>
+				        		<td>Agrega un icono en el texto del botón 2.</td>
+				            	<td>boolean</td>
+				            	<td>false</td>
+				            	<td>true | false</td>
+				          	</tr>
+				          	<tr>
+				        		<td>button2IconType <span class="new badge blue" data-badge-caption="Nuevo"></td>
+				        		<td>Define el tipo de icono a usar en el botón 2. Solo se aceptan referencias a los <a href="https://design.google.com/icons/" target="_blank">iconos de google</a></td>
+				            	<td>string</td>
+				            	<td>''</td>
+				            	<td>error, account_box, get_app, home, etc.</td>
+				          	</tr>
+				          	<tr>
+				        		<td>button2IconSide <span class="new badge blue" data-badge-caption="Nuevo"></td>
+				        		<td>Define en que lado del texto se colocará el icono a usar en el botón 2.</td>
+				            	<td>string</td>
+				            	<td>left</td>
+				            	<td>left | right</td>
+				          	</tr>
+				          	<tr>
+				        		<td>button2Content <span class="new badge orange" data-badge-caption="Mejorado"></td>
+				        		<td>Objeto que tiene configuraciones de estilo la función a ejecutar en el botón 2.</td>
+				            	<td>variables</td>
+				            	<td>text: "button2"<br>
+				        			textColor: "grey"<br>
+				        			textSubColor:"darken-2"<br>
+				        			action:'closeMessage'</td>
+				            	<td>text: "Borrar"<br>
+				        			textColor: "Red"<br>
+				        			textSubColor:"darken-4"<br>
+				        			action:function(){alert('Registro Borrado')}</td>
 				          	</tr>
 				          	<tr>
 				        		<td>dismissible</td>
@@ -459,24 +726,40 @@
 				</div>
 			</div>
 
-		</div><!-- termina row --><br><br><br><br><br>
-
-
+		</div><!-- termina row --><br><br>
+		
+		
+	<div class="row">
+		<div class="col s12">
+			<h3 class="header red-text">Gracias ! ! !</h3>
+			<ul class="collection">
+				<li class="collection-item avatar">
+					<img src="https://avatars.githubusercontent.com/qualitysof" class="circle">
+					<span class="title">Johnny</span>
+					<p>Por su ayuda en la actualización a la versión 1.0.0 de Materializecss<br>
+						<span class="blue-text">qualitysof@gmail.com</span></p>
+					<a href="https://github.com/qualitysof" class="secondary-content" target="_blank"><i class="material-icons">code</i></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+         
+		
+		
 <footer class="page-footer">
 
-          <div class="footer-copyright">
-            <div class="container">
-            <span class="copy-left">©</span> 2016 Copyleft Francisco Cervantes |
-            Dudas, Comentarios o sugerencias paco_cervantes_peralta@outlook.com
-            </div>
-          </div>
-        </footer>
+  <div class="footer-copyright">
+	<div class="container">
+	<span class="copy-left">©</span> 2016 Copyleft Francisco Cervantes |
+	Dudas, Comentarios o sugerencias paco_cervantes_peralta@outlook.com
+	</div>
+  </div>
+</footer>
 
-
-
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script type="text/javascript" src="materializeMessages.js"></script>
+<script type="text/javascript" src="optionals/jquery.scrollbar.min.js"></script>
 <script type="text/javascript" src="examples.js"></script>
 
 
