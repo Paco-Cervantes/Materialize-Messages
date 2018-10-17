@@ -7,6 +7,8 @@
 	$.fn.extend({
 		materializeMessages : function(params){
 			$(this).click(function(event) {
+				event.preventDefault();
+				event.stopPropagation();
 				var attrs = this.attributes;
 				contentMaterializeMessages (true, params, attrs);
 			});
@@ -14,8 +16,6 @@
 	});
 
 	function contentMaterializeMessages (fnClickEvent, params, attrs) {
-		event.preventDefault();
-		event.stopPropagation();
 		var elemAttrs = {};
 		$.each(attrs, function(index, attribute){
 		  elemAttrs[attribute.name] = attribute.value;
