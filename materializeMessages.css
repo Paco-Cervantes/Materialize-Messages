@@ -3,11 +3,6 @@ Estilos solo para este ejemplo,
 no los necesitas en tu proyecto
  */
 
-code { 
-    /*background: hsl(220, 80%, 90%); */
-
-}
-
 pre {
     white-space: pre-wrap;
     background-color: #fafafa;
@@ -39,8 +34,61 @@ filter: FlipH;
 -ms-filter: "FlipH";
 
 }
-/* solo debes incluir este estilo en tu proyecto, todo lo demas esta en materialize.css*/
+
+
+
+/*
+    Estilos necesarios para Materialize-Messages
+*/
+
+.msg-header{
+    position: relative !important;
+    box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+    webkit-box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+    z-index: 9999999;
+}
+
+.modal .modal-content {
+    padding: 24px;
+}
+
+.modal.modal-fixed--footer .modal-content {
+    position: absolute;
+    height: calc(100% - 75px);
+    max-height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+.modal .border-top-footer1 {
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.modal .border-top-footer2 {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    position: absolute;
+    bottom: 0;
+}
+
+.btn-flat:hover{
+    background-color:rgba(0,0,0,0.1) !important;
+    box-shadow:none !important;
+    -webkit-box-shadow:none !important;
+}
+
 .msg-modal{
-	max-width: 450px !important;
-    overflow: hidden;
+    top: 50% !important;
+    transform: translate(0%, -50%) !important;
+    -webkit-transform: translate(0%, -50%) !important;
+    -moz-transform: translate(0%, -50%) !important;
+    -ms-transform: translate(0%, -50%) !important;
+    line-height: 1.45;
+}
+
+.msg-modal-fullHeight{
+    top: 19px !important;
+    height: calc(100% - 38px) !important;
+    max-height: 100%;
+    overflow-y: hidden;
 }
