@@ -28,7 +28,7 @@
 		  useScrollbar : false,
 		  scrollBarType: 'scrollbar-macosx',
 		  fullHeight : false,
-		  msgMaxWidth: 450,
+		  msgMaxWidth: '450px',
 		  withTitle: true,
 		  iconType : 'info',
 		  iconColor : 'white',
@@ -89,7 +89,7 @@
 			  var modalFixedFooter='';
 			}
 		
-		var wraperMessage ='<div id="modalMessage" class="modal '+ modalFixedFooter +' ' + modalStyle+'" style="max-width: '+settings.msgMaxWidth+'px !important">';
+		var wraperMessage ='<div id="modalMessage" class="modal '+ modalFixedFooter +' ' + modalStyle+'" style="width: '+settings.msgMaxWidth+' !important">';
 		if(settings.withTitle)
 			wraperMessage += '<div class="msg-header '+settings.bgTitleColor+' '+settings.bgTitleSubColor+'" style="padding: 10px 0 10px 24px;"><h5 class="'+settings.titleColor+'-text text-'+settings.titleSubColor+'" style="margin: 0 !important;"><li class=" medium material-icons '+settings.iconColor+'-text text-'+settings.iconSubcolor+'">'+settings.iconType+'</li> '+settings.title+'</h5></div>';
 		wraperMessage += '<div class="modal-content '+ settings.scrollBarType+ ' ' +settings.bgMessage+' '+settings.bgMessageSubcolor+'"><p class="'+settings.messageColor+'-text text-'+settings.messageSubColor+'" id="messageContent">'+settings.message+'</p></div>';
